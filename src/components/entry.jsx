@@ -5,24 +5,40 @@ class Entry extends Component {
     return (
       <div>
         <form className="form-inline mt-2 ml-4">
-          <div className="mb-2 mr-2">
+          <em>{this.props.listIndex}.</em>
+          <div className="ml-2 mb-2 mr-2">
             <input
               className="form-control"
               type="text"
-              placeholder="Default input"
+              placeholder="Bill"
+              // value={this.props.counter.name}
+              onChange={e =>
+                this.props.onChangeForm(e.target.value, e.target.placeholder)
+              }
+              onBlur={e =>
+                this.props.onChangeForm(e.target.value, e.target.placeholder)
+              }
             />
           </div>
           <div className="form-group mb-2 mr-2">
             <input
               className="form-control"
               type="text"
-              placeholder="Default input"
+              placeholder="Cost"
+              // value={this.props.counter.name}
+              onChange={e =>
+                this.props.onChangeForm(e.target.value, e.target.placeholder)
+              }
+              onBlur={e =>
+                this.props.onChangeForm(e.target.value, e.target.placeholder)
+              }
             />
           </div>
           <div className="form-group mb-2">
             <button
               onClick={this.props.onDelete}
-              className="btn btn-danger btn-sm "
+              className="btn btn-danger btn-sm"
+              tabIndex="-1"
             >
               Delete
             </button>
