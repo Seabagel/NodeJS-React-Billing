@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Entry from "./entry";
+import "./entries.css";
 
 class Entries extends Component {
   constructor() {
@@ -9,7 +10,8 @@ class Entries extends Component {
 
   state = {
     counters: [{ id: 1, name: "", value: 0 }],
-    counterLen: 0
+    counterLen: 0,
+    income: 0
   };
 
   handleAdd = () => {
@@ -42,40 +44,79 @@ class Entries extends Component {
       else if (ePlace === "Cost") return { ...c, value: parseFloat(eValue) };
       return c;
     });
-    console.log(ePlace, eValue, counter);
     this.setState({ counters });
+  };
+
+  handleChangeIncome = txtValue => {
+    const income = txtValue;
+    this.setState({ income });
   };
 
   render() {
     return (
-      <div>
-        <button
-          onClick={this.handleReset}
-          className="btn btn-success m-2"
-          tabIndex="-1"
-        >
-          Reset
-        </button>
-        <button
-          onClick={this.handleAdd}
-          className="btn btn-primary m-2"
-          tabIndex="-1"
-        >
-          Add element
-        </button>
-        {this.state.counters.map(counter => (
-          <div key={counter.id} className="counter">
-            <Entry
-              counter={counter} // encapsulation
-              listIndex={this.state.counters.indexOf(counter) + 1}
-              onDelete={() => this.handleDelete(counter)}
-              onChangeForm={(eValue, ePlace) =>
-                this.handleChangeForm(eValue, ePlace, counter)
-              }
-            />
+      <main>
+        <form className="form-inline m-3">
+          <div className="auto">
+            <button
+              type="button"
+              onClick={this.handleReset}
+              className="btn btn-warning m-2 form-control"
+              tabIndex="-1"
+            >
+              Reset
+            </button>
+            <button
+              type="button"
+              onClick={this.handleAdd}
+              className="btn btn-primary m-2 form-control"
+              tabIndex="-1"
+            >
+              Add element
+            </button>
           </div>
+        </form>
+
+        <form className="form-inline m-3">
+          <div className="auto">
+            <h5>Income per paycheck:</h5>
+            <input
+              className="ml-1 mb-2 form-control"
+              type="text"
+              onBlur={e => this.handleChangeIncome(e.target.value)}
+            />
+            <select
+              className="ml-1 mb-2 form-control"
+              defaultValue="Bi-Monthly"
+            >
+              <option value="Monthly">Monthly</option>
+              <option value="Bi-Monthly">Bi-Monthly</option>
+              <option value="Weekly">Weekly</option>
+            </select>
+          </div>
+        </form>
+
+        {this.state.counters.map(counter => (
+          <Entry
+            key={counter.id}
+            counter={counter} // encapsulation
+            listIndex={this.state.counters.indexOf(counter) + 1}
+            onDelete={() => this.handleDelete(counter)}
+            onChangeForm={(eValue, ePlace) =>
+              this.handleChangeForm(eValue, ePlace, counter)
+            }
+          />
         ))}
-      </div>
+
+        <br />
+        <form className="form-inline m-3">
+          <div className="auto">
+            <button type="button" className="btn btn-success form-control m-1">
+              Calculate
+            </button>
+          </div>
+        </form>
+        <h4 className="m-3">Your total: </h4>
+      </main>
     );
   }
 }
