@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./entries.css";
 
 class Entry extends Component {
   styles = {
@@ -10,13 +11,17 @@ class Entry extends Component {
 
   render() {
     return (
-      <div className="form-row">
+      <div className="form-row counterBg">
         <div className=" col-md-4">
-          <input className="form-control" placeholder={this.props.listIndex} />
+          <input
+            type="text"
+            className="form-control"
+            placeholder={this.props.listIndex}
+          />
         </div>
 
         <div className="col-md-3">
-          <input className="form-control" />
+          <input type="text" className="form-control" />
         </div>
 
         <div className="col-md-3">
@@ -27,9 +32,9 @@ class Entry extends Component {
           </select>
         </div>
 
-        <div className="col-md-2">
+        <div className="col-md-2 ">
           <button
-            className="btn btn-danger form-control form-group"
+            className="btn btn-danger form-control "
             type="button"
             onClick={this.props.onDelete}
             tabIndex="-1"

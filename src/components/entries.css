@@ -3,6 +3,29 @@ main {
   max-width: 780px;
 }
 
-.auto {
-  margin-bottom: 32px;
+.marginSpace {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.fixInputMargin {
+  margin: auto 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+.counterBg {
+  background-color: rgb(226, 226, 226);
+  padding: 6px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+.counterBg input,
+select,
+button {
+  margin: 6px 0;
+  border-radius: 4px;
 }

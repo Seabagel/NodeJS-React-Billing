@@ -55,8 +55,8 @@ class Entries extends Component {
   render() {
     return (
       <main>
-        <div className="form-row auto">
-          <div className="col-md-5">
+        <div className="form-row marginSpace">
+          <div className="col-md-3">
             <button
               type="button"
               onClick={this.handleReset}
@@ -66,7 +66,7 @@ class Entries extends Component {
               Reset
             </button>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-3">
             <button
               type="button"
               onClick={this.handleAdd}
@@ -78,12 +78,12 @@ class Entries extends Component {
           </div>
         </div>
 
-        <div className="form-row auto">
-          <label className="col-md-5 col-form-label">
-            <h4>Income per paycheck:</h4>
+        <div className="form-row marginSpace">
+          <label className="col-md-5 col-form-label fixInputMargin">
+            <h4 className="fixInputMargin">Income per paycheck:</h4>
           </label>
-          <div className="col-md-4">
-            <input type="email" className="form-control" />
+          <div className="col-md-4 fixInputMargin">
+            <input type="text" className="form-control" />
           </div>
           <div className="col-md-3">
             <select className="form-control" defaultValue="Bi-Monthly">
@@ -108,10 +108,10 @@ class Entries extends Component {
           <div className="col-md-4">
             <label>Name of Bill</label>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <label>Cost</label>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <label>Frequency</label>
           </div>
           <div className="col-md-2">
