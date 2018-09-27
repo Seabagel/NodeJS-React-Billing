@@ -18,14 +18,12 @@ label {
 
 .counterBg {
   background-color: rgb(226, 226, 226);
-  padding: 6px;
-  margin-bottom: 12px;
-  border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 16px;
+  border-radius: 4px;
 }
 
-.counterBg input,
-select,
-button {
-  margin: 6px 0;
-  border-radius: 4px;
+.input-group-text,
+.form-control {
+  margin: 5px 0;
 }

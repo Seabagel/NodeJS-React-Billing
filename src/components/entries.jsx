@@ -79,11 +79,16 @@ class Entries extends Component {
         </div>
 
         <div className="form-row marginSpace">
-          <label className="col-md-5 col-form-label fixInputMargin">
-            <h4 className="fixInputMargin">Income per paycheck:</h4>
+          <label className="col-md-5 col-form-label ">
+            <h4>Income per paycheck:</h4>
           </label>
-          <div className="col-md-4 fixInputMargin">
-            <input type="text" className="form-control" />
+          <div className="col-md-4 ">
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <div className="input-group-text ">$</div>
+              </div>
+              <input type="text" className="form-control" />
+            </div>
           </div>
           <div className="col-md-3">
             <select className="form-control" defaultValue="Bi-Monthly">
@@ -106,10 +111,10 @@ class Entries extends Component {
 
         <div className="form-row ">
           <div className="col-md-4">
-            <label>Name of Bill</label>
+            <label>Name of Entry</label>
           </div>
           <div className="col-md-3">
-            <label>Cost</label>
+            <label>Value</label>
           </div>
           <div className="col-md-3">
             <label>Frequency</label>

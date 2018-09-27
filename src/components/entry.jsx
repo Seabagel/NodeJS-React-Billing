@@ -2,26 +2,29 @@ import React, { Component } from "react";
 import "./entries.css";
 
 class Entry extends Component {
-  styles = {
-    auto: {
-      margin: "0 auto",
-      width: "100%"
-    }
-  };
-
   render() {
     return (
       <div className="form-row counterBg">
         <div className=" col-md-4">
-          <input
-            type="text"
-            className="form-control"
-            placeholder={this.props.listIndex}
-          />
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <div className="input-group-text">{this.props.listIndex}</div>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Bills, Savings"
+            />
+          </div>
         </div>
 
         <div className="col-md-3">
-          <input type="text" className="form-control" />
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <div className="input-group-text">$</div>
+            </div>
+            <input type="text" className="form-control" placeholder="Cost" />
+          </div>
         </div>
 
         <div className="col-md-3">
