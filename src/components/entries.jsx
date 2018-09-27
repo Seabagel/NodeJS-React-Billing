@@ -55,45 +55,69 @@ class Entries extends Component {
   render() {
     return (
       <main>
-        <form className="form-inline m-3">
-          <div className="auto">
+        <div className="form-row auto">
+          <div className="col-md-5">
             <button
               type="button"
               onClick={this.handleReset}
-              className="btn btn-warning m-2 form-control"
+              className="btn btn-warning form-control"
               tabIndex="-1"
             >
               Reset
             </button>
+          </div>
+          <div className="col-md-5">
             <button
               type="button"
               onClick={this.handleAdd}
-              className="btn btn-primary m-2 form-control"
+              className="btn btn-primary form-control"
               tabIndex="-1"
             >
-              Add element
+              Add Entry
             </button>
           </div>
-        </form>
+        </div>
 
-        <form className="form-inline m-3">
-          <div className="auto">
-            <h5>Income per paycheck:</h5>
-            <input
-              className="ml-1 mb-2 form-control"
-              type="text"
-              onBlur={e => this.handleChangeIncome(e.target.value)}
-            />
-            <select
-              className="ml-1 mb-2 form-control"
-              defaultValue="Bi-Monthly"
-            >
+        <div className="form-row auto">
+          <label className="col-md-5 col-form-label">
+            <h4>Income per paycheck:</h4>
+          </label>
+          <div className="col-md-4">
+            <input type="email" className="form-control" />
+          </div>
+          <div className="col-md-3">
+            <select className="form-control" defaultValue="Bi-Monthly">
               <option value="Monthly">Monthly</option>
               <option value="Bi-Monthly">Bi-Monthly</option>
               <option value="Weekly">Weekly</option>
             </select>
           </div>
-        </form>
+        </div>
+        {/* <input
+            className="ml-1 mb-2 form-control"
+            type="text"
+            onBlur={e => this.handleChangeIncome(e.target.value)}
+            />
+            <select className="ml-1 mb-2 form-control" defaultValue="Bi-Monthly">
+            <option value="Monthly">Monthly</option>
+            <option value="Bi-Monthly">Bi-Monthly</option>
+            <option value="Weekly">Weekly</option>
+          </select> */}
+
+        <div className="form-row ">
+          <div className="col-md-4">
+            <label>Name of Bill</label>
+          </div>
+          <div className="col-md-2">
+            <label>Cost</label>
+          </div>
+          <div className="col-md-2">
+            <label>Frequency</label>
+          </div>
+          <div className="col-md-2">
+            <label htmlFor="">&nbsp;</label>
+          </div>
+        </div>
 
         {this.state.counters.map(counter => (
           <Entry
@@ -107,15 +131,12 @@ class Entries extends Component {
           />
         ))}
 
-        <br />
-        <form className="form-inline m-3">
-          <div className="auto">
-            <button type="button" className="btn btn-success form-control m-1">
-              Calculate
-            </button>
-          </div>
-        </form>
-        <h4 className="m-3">Your total: </h4>
+        {/* <h4 className="m-3">Your total: </h4>
+        <form className="form-inline">
+          <button type="button" className="btn btn-success form-control m-1">
+            Calculate
+          </button>
+        </form> */}
       </main>
     );
   }

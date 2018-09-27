@@ -10,37 +10,34 @@ class Entry extends Component {
 
   render() {
     return (
-      <form className="form-inline m-3 ">
-        <div style={this.styles.auto}>
-          <h5>{this.props.listIndex}:</h5>
-          <input
-            className="ml-1 mb-2 form-control"
-            type="text"
-            placeholder="Bill"
-            // value={this.props.counter.name}
-            onBlur={e =>
-              this.props.onChangeForm(e.target.value, e.target.placeholder)
-            }
-          />
-          <input
-            className="ml-1 mb-2 form-control"
-            type="text"
-            placeholder="Cost"
-            // value={this.props.counter.name}
-            onBlur={e =>
-              this.props.onChangeForm(e.target.value, e.target.placeholder)
-            }
-          />
+      <div className="form-row">
+        <div className=" col-md-4">
+          <input className="form-control" placeholder={this.props.listIndex} />
+        </div>
+
+        <div className="col-md-3">
+          <input className="form-control" />
+        </div>
+
+        <div className="col-md-3">
+          <select className="form-control" defaultValue="Bi-Monthly">
+            <option value="Monthly">Monthly</option>
+            <option value="Bi-Monthly">Bi-Monthly</option>
+            <option value="Weekly">Weekly</option>
+          </select>
+        </div>
+
+        <div className="col-md-2">
           <button
+            className="btn btn-danger form-control form-group"
             type="button"
             onClick={this.props.onDelete}
-            className="btn btn-danger ml-1 mb-2 form-control"
             tabIndex="-1"
           >
             Delete
           </button>
         </div>
-      </form>
+      </div>
     );
   }
 }
