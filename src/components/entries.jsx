@@ -40,15 +40,16 @@ class Entries extends Component {
 
   handleChangeForm = (eValue, ePlace, counter) => {
     const counters = [...this.state.counters].map(c => {
-      if (ePlace === "Bill") return { ...c, name: eValue };
-      else if (ePlace === "Cost") return { ...c, value: parseFloat(eValue) };
+      if (ePlace.substring(0, 4) === "Bill") return { ...c, name: eValue };
+      else if (ePlace.substring(0, 4) === "Cost")
+        return { ...c, value: parseFloat(eValue) };
       return c;
     });
     this.setState({ counters });
   };
 
   handleChangeIncome = txtValue => {
-    const income = txtValue;
+    const income = parseFloat(txtValue);
     this.setState({ income });
   };
 
@@ -87,7 +88,11 @@ class Entries extends Component {
               <div className="input-group-prepend">
                 <div className="input-group-text ">$</div>
               </div>
-              <input type="text" className="form-control" />
+              <input
+                type="text"
+                className="form-control"
+                onBlur={e => this.handleChangeIncome(e.target.value)}
+              />
             </div>
           </div>
           <div className="col-md-3">
@@ -98,16 +103,6 @@ class Entries extends Component {
             </select>
           </div>
         </div>
-        {/* <input
-            className="ml-1 mb-2 form-control"
-            type="text"
-            onBlur={e => this.handleChangeIncome(e.target.value)}
-            />
-            <select className="ml-1 mb-2 form-control" defaultValue="Bi-Monthly">
-            <option value="Monthly">Monthly</option>
-            <option value="Bi-Monthly">Bi-Monthly</option>
-            <option value="Weekly">Weekly</option>
-          </select> */}
 
         <div className="form-row ">
           <div className="col-md-4">

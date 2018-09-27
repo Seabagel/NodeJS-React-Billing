@@ -14,6 +14,9 @@ class Entry extends Component {
               type="text"
               className="form-control"
               placeholder="Bills, Savings"
+              onBlur={e =>
+                this.props.onChangeForm(e.target.value, e.target.placeholder)
+              }
             />
           </div>
         </div>
@@ -23,7 +26,14 @@ class Entry extends Component {
             <div className="input-group-prepend">
               <div className="input-group-text">$</div>
             </div>
-            <input type="text" className="form-control" placeholder="Cost" />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Cost"
+              onBlur={e =>
+                this.props.onChangeForm(e.target.value, e.target.placeholder)
+              }
+            />
           </div>
         </div>
 
