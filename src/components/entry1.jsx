@@ -14,11 +14,10 @@ class Entry extends Component {
               type="text"
               className="form-control"
               placeholder="Bills, Savings"
-              tabIndex="-1"
-              readOnly
-            >
-              {/* {this.props.counter.name} */}
-            </input>
+              onBlur={e =>
+                this.props.onChangeForm(e.target.value, e.target.placeholder)
+              }
+            />
           </div>
         </div>
 
@@ -31,21 +30,15 @@ class Entry extends Component {
               type="text"
               className="form-control"
               placeholder="Cost"
-              tabIndex="-1"
-              readOnly
-            >
-              {/* {this.props.counter.value} */}
-            </input>
+              onBlur={e =>
+                this.props.onChangeForm(e.target.value, e.target.placeholder)
+              }
+            />
           </div>
         </div>
 
         <div className="col-md-3">
-          <select
-            className="form-control"
-            defaultValue="Bi-Monthly"
-            tabIndex="-1"
-            readOnly
-          >
+          <select className="form-control" defaultValue="Bi-Monthly">
             <option value="Monthly">Monthly</option>
             <option value="Bi-Monthly">Bi-Monthly</option>
             <option value="Weekly">Weekly</option>
@@ -56,6 +49,7 @@ class Entry extends Component {
           <button
             className="btn btn-danger form-control "
             type="button"
+            onClick={this.props.onDelete}
             tabIndex="-1"
           >
             Delete
